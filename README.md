@@ -3,3 +3,4 @@
 - [ ] Create Jest config
 - [ ] Refactor AUthComponent
 - [ ] Create Translations Page and dashboard
+- [ ] Config t
