@@ -26,9 +26,9 @@ function Navbar() {
                 className="w-6 h-6 "
               />
               <div className="font-bold text-xl">
-                RENT{" "}
+                ZEN{" "}
                 <span className="text-secondary-500 font-light  hover:!text-primary-300">
-                  IFUL
+                  PLAN
                 </span>
               </div>
             </div>
@@ -39,9 +39,6 @@ function Navbar() {
         </p>
 
         <div className="flex items-center gap-5">
-          <Link href="#" className="text-primary-200 hover:!text-primary-300">
-            Sign In
-          </Link>
           <Link href="/signin">
             <Button
               variant="outline"
