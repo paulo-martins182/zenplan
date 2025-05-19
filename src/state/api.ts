@@ -1,3 +1,4 @@
+import { createNewUserInDatabase } from "@/lib/utils";
 import { Manager, Tenant } from "@/types/prismaTypes";
 import { fetchAuthSession, getCurrentUser } from "@aws-amplify/auth";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
@@ -22,16 +23,22 @@ export const api = createApi({
         try{
           const session = await fetchAuthSession();
           const {idToken} = session?.tokens ?? {};
-
           const user = await  getCurrentUser();
+          
           const userRole = idToken?.payload["custom:role"] as string;
 
-          const endpoint = userRole === "manager" ? `/manager/${user.userId}` : `/tentants/${user.userId}`;
+          const endpoint = userRole === "manager" ? `/managers/${user.userId}` : `/tentants/${user.userId}`;
 
           // eslint-disable-next-line prefer-const
           let userDetailsResponse = await fetchWithBQ(endpoint);
 
           //caso não exista nenhum user, criar novo user
+          if(userDetailsResponse.error && userDetailsResponse.error.status === 404){
+            userDetailsResponse = await createNewUserInDatabase(user, idToken, userRole, fetchWithBQ);
+          }
+
+
+          console.log("userDetailsResponse", userDetailsResponse);
 
           return {
             data: {
@@ -57,4 +64,6 @@ export const api = createApi({
   }),
 });
 
-export const {} = api;
+export const {
+  useGetAuthUserQuery,
+} = api;

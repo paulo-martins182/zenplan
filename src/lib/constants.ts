@@ -111,7 +111,7 @@ export const PropertyTypeIcons: Record<PropertyTypeEnum, LucideIcon> = {
 };
 
 
-export const NAVBAR_HEIGHT = 58;
+export const NAVBAR_HEIGHT = 44;
 
 // Test users for development
 export const testUsers = {
