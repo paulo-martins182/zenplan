@@ -22,7 +22,7 @@ Plataforma moderna de reservas de hotéis desenvolvida com **Next.js**, **React 
 |---------------|---------------------------|
 | Frontend      | React 19, Next.js 15      |
 | UI Library    | Shadcn UI (Radix + Tailwind) |
-| Backend       | Node.js, Next.js API Routes |
+| Backend       | Node.js, Express          |
 | Autenticação  | AWS Cognito               |
 | Banco de Dados| Amazon RDS (PostgreSQL)   |
 | Armazenamento | AWS S3                    |
@@ -68,7 +68,7 @@ npm install
 yarn install
 ```
 
-3. Configure o .env.local
+3. Configure o .env.development
 
 Crie um .env.development  na raiz do projeto e preencha com suas credenciais:
 
@@ -82,13 +82,7 @@ AWS_SECRET_ACCESS_KEY=your-secret-key
 S3_BUCKET_NAME=hotel-booking-images
 ```
 
-1. Migre o banco de dados
-
-```bash
-npx prisma migrate dev
-```
-
-5. Execute o projeto
+4. Execute o projeto
 
 ```bash
 npm run dev
