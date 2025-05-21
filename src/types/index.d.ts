@@ -120,7 +120,7 @@ declare global {
     isDashboard: boolean;
   }
 
-  interface AppSidebarProps {
+  interface BaseSidebarProps {
     userType: "manager" | "tenant";
   }
 
