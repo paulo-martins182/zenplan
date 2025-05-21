@@ -29,7 +29,7 @@ export const api = createApi({
 
           const endpoint = userRole === "manager" ? `/managers/${user.userId}` : `/tentants/${user.userId}`;
 
-          // eslint-disable-next-line prefer-const
+           
           let userDetailsResponse = await fetchWithBQ(endpoint);
 
           //caso não exista nenhum user, criar novo user
