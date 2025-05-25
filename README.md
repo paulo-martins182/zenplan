@@ -126,8 +126,8 @@ pm2 start npm --name "hotel-booking" -- start
 
 ✅ Funcionalidades Futuras
 
-- [ ] Configure CZ commit
-- [ ] Config Husky
+- [x] Configure CZ commit
+- [x] Config Husky
 - [ ] Create Jest config
 - [ ] Refactor AUthComponent
 - [ ] Create Translations Page and dashboard
