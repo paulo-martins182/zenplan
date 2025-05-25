@@ -1,6 +1,9 @@
 
 # 🏨 Hotel Booking App
 
+// APp based by apartaments.com
+// foi utilizado o manus para organizar  a base do diagrama de logica do projeto.
+
 Plataforma moderna de reservas de hotéis desenvolvida com **Next.js**, **React 19**, **Node.js** e infraestrutura escalável utilizando **AWS** (EC2, RDS, S3 e Cognito). A interface sera construída com **Shadcn UI**, garantindo uma experiência  acessível e responsiva para os users.
 
 ## ✨ Features

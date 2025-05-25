@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 import { useGetAuthUserQuery } from "@/state/api";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "aws-amplify/auth";
-import { Bell, MessageCircle, Plus, Search } from "lucide-react";
+import { Bell, MessageCircle } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -46,7 +46,7 @@ const Navbar = () => {
           )}
           <Link
             href="/"
-            className="cursor-pointer hover:!text-primary-300"
+            className="cursor-pointer hover:!text-primary-300 ml-5"
             scroll={false}
           >
             <div className="flex items-center gap-3">
@@ -65,7 +65,7 @@ const Navbar = () => {
               </div>
             </div>
           </Link>
-          {isDashboardPage && authUser && (
+          {/* {isDashboardPage && authUser && (
             <Button
               variant="secondary"
               className="md:ml-4 bg-primary-50 text-primary-700 hover:bg-secondary-500 hover:text-primary-50"
@@ -91,7 +91,7 @@ const Navbar = () => {
                 </>
               )}
             </Button>
-          )}
+          )} */}
         </div>
         {!isDashboardPage && (
           <p className="text-primary-200 hidden md:block">

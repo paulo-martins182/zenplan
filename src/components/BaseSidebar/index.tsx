@@ -11,7 +11,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "../ui/sidebar";
-import { Menu, X } from "lucide-react";
+import { Menu, Text } from "lucide-react";
 import { NAVBAR_HEIGHT } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -32,7 +32,7 @@ const BaseSidebar = ({ userType }: BaseSidebarProps) => {
         height: `calc(100vh - ${NAVBAR_HEIGHT}px)`,
       }}
     >
-      <SidebarHeader>
+      <SidebarHeader className="relative">
         <SidebarMenu>
           <SidebarMenuItem>
             <div
@@ -47,18 +47,22 @@ const BaseSidebar = ({ userType }: BaseSidebarProps) => {
                     {userType === "manager" ? "Manager View" : "Renter View"}
                   </h1>
                   <button
-                    className="hover:bg-gray-100 p-2 rounded-md"
+                    className="hover:bg-gray-100 p-2 rounded-md cursor-pointer "
                     onClick={() => toggleSidebar()}
                   >
-                    <X className="h-6 w-6 text-gray-600" />
+                    <span className="bg-secondary-600 p-1 rounded-sm  absolute -right-5 top-5 ">
+                      <Text className="h-6 w-6 text-white " />
+                    </span>
                   </button>
                 </>
               ) : (
                 <button
-                  className="hover:bg-gray-100 p-2 rounded-md"
+                  className="hover:bg-gray-100 p-2 rounded-md cursor-pointer"
                   onClick={() => toggleSidebar()}
                 >
-                  <Menu className="h-6 w-6 text-gray-600" />
+                  <span className="bg-secondary-600 p-1  rounded-sm absolute left-0 top-5 ">
+                    <Menu className="h-6 w-6 text-white " />
+                  </span>
                 </button>
               )}
             </div>
@@ -67,7 +71,7 @@ const BaseSidebar = ({ userType }: BaseSidebarProps) => {
       </SidebarHeader>
 
       <SidebarContent>
-        <SidebarMenu>
+        <SidebarMenu className="px-4">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
 
@@ -76,27 +80,19 @@ const BaseSidebar = ({ userType }: BaseSidebarProps) => {
                 <SidebarMenuButton
                   asChild
                   className={cn(
-                    "flex items-center px-7 py-7",
+                    "flex items-center px-4 py-6 ",
                     isActive
-                      ? "bg-gray-100"
-                      : "text-gray-600 hover:bg-gray-100",
-                    open ? "text-blue-600" : "ml-[5px]"
+                      ? "text-white bg-secondary-600 hover:bg-secondary-800 hover:text-white"
+                      : "text-gray-700 hover:bg-secondary-800 hover:text-white",
+                    open ? "" : "ml-[-9px]"
                   )}
                 >
                   <Link href={link.href} className="w-full" scroll={false}>
                     <div className="flex items-center gap-3">
                       <link.icon
-                        className={`h-5 w-5 ${
-                          isActive ? "text-blue-600" : "text-gray-600"
-                        }`}
+                        className={cn(`h-5 w-5 `, open ? "" : "ml-[-2px]")}
                       />
-                      <span
-                        className={`font-medium ${
-                          isActive ? "text-blue-600" : "text-gray-600"
-                        }`}
-                      >
-                        {link.label}
-                      </span>
+                      <span className={`font-medium `}>{link.label}</span>
                     </div>
                   </Link>
                 </SidebarMenuButton>
